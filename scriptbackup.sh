@@ -6,7 +6,7 @@
 
 repoVersion=$(gh release list --repo rancher/rancher --exclude-drafts | grep 'Latest' | awk '{ print $1}')
 
-serverVersion=$(kubectl get deploy rancher -n cattle-system -o jsonpath='{.spec.template.spec.containers[*].image}' | cut -d ":" -f2)
+serverVersion=$(kubectl --kubeconfig="local.yaml" get deploy rancher -n cattle-system -o jsonpath='{.spec.template.spec.containers[*].image}' | cut -d ":" -f2)
 
 if [ "$repoVersion" != "$serverVersion" ]
     then
