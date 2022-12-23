@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: "local"
+  cluster:
+    server: "https://rancher-cluster0-dns.westeurope.cloudapp.azure.com/k8s/clusters/local"
+
+users:
+- name: "local"
+  user:
+    token: "kubeconfig-user-pvtjhfdr59:vtcftfsvn28k42cs9qxvf8n2ql9mcbdflnx6kf96jm4fdc2q6z898c"
+
+
+contexts:
+- name: "local"
+  context:
+    user: "local"
+    cluster: "local"
+
+current-context: "local"
