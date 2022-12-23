@@ -27,6 +27,7 @@ jobs:
 
       - name: BackupRancher
         run: cd ../..
-        name: script
+        
+      - name: script
         run: bash scriptbackup.sh
         
