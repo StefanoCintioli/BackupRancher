@@ -20,6 +20,6 @@ if [ "$repoVersion" != "$serverVersion" ]
             else
                 helm repo update
             fi    
-        helm upgrade --install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher-cluster0-dns.westeurope.cloudapp.azure.com --set bootstrapPassword=admin --set ingress.tls.source=letsEncrypt --set letsEncrypt.email=stefano.cintioli@icub.it --set letsEncrypt.ingress.class=nginx --set ingress.ingressClassName=nginx
+    helm --kubeconfig="local.yaml" upgrade --install rancher rancher-latest/rancher --namespace cattle-system --set hostname=rancher-cluster0-dns.westeurope.cloudapp.azure.com --set bootstrapPassword=admin --set ingress.tls.source=letsEncrypt --set letsEncrypt.email=stefano.cintioli@icub.it --set letsEncrypt.ingress.class=nginx --set ingress.ingressClassName=nginx
 fi
 echo "la versione è aggiornata"
