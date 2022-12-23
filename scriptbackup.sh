@@ -10,7 +10,7 @@ serverVersion=$(kubectl --kubeconfig="local.yaml" get deploy rancher -n cattle-s
 
 if [ "$repoVersion" != "$serverVersion" ]
     then
-        ./scriptTetraPakBackUp.sh
+        bash scriptTetraPakBackUp.sh
         RancherRepo=$(helm repo list | grep 'rancher-latest')
         if [ -z "$RancherRepo" ]
             then
